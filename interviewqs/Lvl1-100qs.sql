@@ -74,3 +74,10 @@ select user1_id , user2_id from follower_count where common_follower_count =
 select max(common_follower_count) from follower_count ) 
 ;
 
+7) The Latest Login in 2020
+select user_id , 
+max(time_stamp) as last_stamp
+from logins
+where extract (yaear from time_stamp) =2020
+group by user_id ;
+
