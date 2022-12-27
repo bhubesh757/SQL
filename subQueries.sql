@@ -130,6 +130,33 @@ group by job_id having sum(salary) >(
 );
 --same result then ehy like %ADVP%;
 -- finding the sum(salary) whose job_id ad_vp , greater than this
+select * from departments;
+select * from employees;
+
+--subqueries and joins
+--right join
+
+select 
+e.EMPLOYEE_ID,
+e.FIRST_NAME,
+e.department_id,
+d.department_name
+from employees e right join departments d on e.department_id = d.department_id ; 
+
+select manager_id from employees group by manager_id;
+
+select * from employees where employee_id in (
+    select manager_id from employees group by manager_id
+);
+-- co related sub query
+--self join
+
+select * from employees a where 1<= (
+select count(*) from employees b 
+where b.manager_id = a.employee_id
+);
+
+
 
 
 
