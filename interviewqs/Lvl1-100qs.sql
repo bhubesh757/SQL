@@ -92,5 +92,10 @@ c1.free = true and c2.free = true
 order by c1.seat_id
 ;
 
+9)
 
-
+select  *    from cinema 
+where mod(id,2)<>0 and description <> 'boring'
+order by id desc;
+--its my answer 25 min of thinking worked hard , so , from this i learned is practise only gives u wings to succeed , now i am able know some basics and
+i can able to solve some basic problems , stepping into the next level medium lvl need to develop the code capability and content 
