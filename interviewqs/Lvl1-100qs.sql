@@ -99,3 +99,12 @@ where mod(id,2)<>0 and description <> 'boring'
 order by id desc;
 --its my answer 25 min of thinking worked hard , so , from this i learned is practise only gives u wings to succeed , now i am able know some basics and
 i can able to solve some basic problems , stepping into the next level medium lvl need to develop the code capability and content 
+
+10)Number of comments per post
+--i coudnt solve this becase the qs is nt understandable
+select distinct s1.sub_id as post_id,
+count(distinct s2.sub_id) as number_of_comments
+from submissions s1 left join submissions s2 on 
+s1.sub_id = s2.parent_id 
+where s1.parent_id is null
+group by s1.sub_id;
