@@ -108,3 +108,18 @@ from submissions s1 left join submissions s2 on
 s1.sub_id = s2.parent_id 
 where s1.parent_id is null
 group by s1.sub_id;
+
+
+11)Sellers With No Sales
+
+
+select 
+seller_name
+from customer c  join  orders o 
+on c.customer_id = o.customer_id 
+ join seller s
+on s.seller_id = o.seller_id
+where s.seller_id not in (
+select seller_id from orders where extract (year from sale_date) = 2020
+)
+;
