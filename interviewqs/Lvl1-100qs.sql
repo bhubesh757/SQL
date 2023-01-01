@@ -123,3 +123,17 @@ where s.seller_id not in (
 select seller_id from orders where extract (year from sale_date) = 2020
 )
 ;
+
+12) Ad Free sessions
+select 
+session_id 
+from playback 
+where session_id not in (
+    select session_id from 
+    playback p inner join ads a on 
+    p.customer_id = a.customer_id and
+    (a.timestamp>=p.start_time and a.timestamp <= p.end_time)
+)
+
+
+
